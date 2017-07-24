@@ -5,6 +5,34 @@
 <title>Insert title here</title>
 </head>
 <body>
+<script>
+	var birth = prompt("생년월일 형식:820625:","생년월일 입력하세요");
+	var birthlang = birth.length 
+	
+	if(brithlang=6 || CharAt(3)<2){
+		document.write("정상적인 생년월입니다.");
+	}else if (lang<6)
+	{
+		document.write("6자리를 초과하였습니다.");
+	} else {
+		document.write("생년월일을 확인해 주시길 바랍니다.");
+	}
+	
+	var phone = prompt("휴대폰 번호형식:010-3618-1304:","휴대폰 번호를 입력하세요");
+	var phonelang = phone.length
+	var telecom = charAt(1)||charAt(2)||charAt(3)
+	
+	if(telecom==010){
+		document.write("당신은 KT망이나  SK망 사용중입니다.");
+	}else if(telecom==011){
+			document.write("당신은 SK망을 사용중입니다.");
+	}else if(telecom==019){		
+		document.write("당신은 LG망을 사용중입니다.");
+		}else 
+			document.write("통신사 대여망을 사용 중입니다.");
+	
+	
 
+</script>
 </body>
 </html>
