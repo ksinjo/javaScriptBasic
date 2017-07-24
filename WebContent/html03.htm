@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+ <!--  
+  폼을 구성하는 태그들
+   : 폼은 데이터를 전송할때 사용하는 태그 
+    회원가입을 할 때 이름, 전화번호, 주소 .. 
+ 
+ <form> 자신의 태그 내에 있는 데이터를 지정한 웹 주소로 전송해 준다. 
+  데이터 전송방식
+   GET 방식: 데이터용량이 작은 256~4096byte  
+   post 방식: 대용량의 데이터를 보낼 때 유용하다.  
+ 
+  <form> 속성 : 
+   method : 데이터 전송방식 지정. (get or post 방식을 지정)
+   name : 폼의 이름을 지정. 자바스크립트에서 폼내 데이터를 구분할 때 사용한다. 
+   action : 폼내의 데이터를 이동시킬 위치를 지정한다. 
+   enctype: 대용량의 파일의 데이터 속성을 지정한다. 
+    
+   구성태그들 
+   ---------- 
+   <input> 
+      type: 
+       - text : 한줄 입력을 받을 때 사용하는 형식
+       - passward : 사용자가 볼 수 없도록 지정하는 방식 
+       - radio : 상호배타적 선택
+       - checkbox: 다중선택
+       - button: 자바스크립트와 연계해서 사용 
+       - submit : 폼의 내용을 action에서 지정한 주소로 보낼 때 사용. 
+       - reset : 폼의 내용을 초기값으로 재성절할때 사용하는 형식
+       - hidden : 숨길필드로 화면에 보여지지 않게 할 때 사용한다. 
+       - file : 파일을 첨부할 때 사용하는 형식. 
+   	  
+   	  <select> 
+   	   :목록상자나 콤보 박스로 폼을 구성할 때 사용하는 태그 
+   	   속성: 
+   	    - name : 필드의 이름을 지정
+   	    - size : 목록상자에 보여지는 항목의 수를 지정한다. 
+   	    - multiple:  필드에서 여러개의 항목을 선택할 수 있다. 
+   	    
+   	   <option> 
+   	     select 태그가 만드는 필드의 항목을 만드는 태그 
+   	     value : 항목을 선택했을 때 전송할 값  
+   	     seleted : 기본적으로 선택되는 항목을 지정
+   	   
+   	   <textarea>
+   	    여러 줄을 입력하는 데이터를 사용하고자 할 때 쓰이는 태그 
+   	    
+   	     name: 필드의 이름 지정
+   	     clols: 대문자 A를 기준으로 너비를 설정. 
+   	     rows : 대문자 A를 기준으로 행을 설정. 
+   	     readonly: 해당 영역을 읽기만 하는 속성. 필드를 읽기 전용 지정. 
+   
+  키워드와 속성 상태
+
+
+키워드와 속성 상태입니다. 아래 표는 type 속성 별 키워드와 속성의 상태를 열거합니다. 데이터 타입은 type 속성값의 형태를 열거합니다. 컨트롤 타입은 데이터 타입에 대응하는 type 속성의 형태를 나타내며, 키워드가 정의되지 않았다면 기본 Text state입니다. 
+
+
+키워드 
+
+상태 
+
+데이터 타입 
+
+컨트롤 타입 
+
+hidden  Hidden  임의의 문자열  n/a  
+text  Text  줄바꿈 없는 텍스트  Text field  
+search  Search  줄바꿈 없는 텍스트  Search field  
+tel  Telephone  줄바꿈 없는 텍스트  A text field  
+url  URL  IRI 절대경로  A text field  
+email  E-mail  이메일주소, 혹은 그것의 목록  A text field  
+password  Password  줄바꿈없는 텍스트(민감한 정보)  Text field that obscures data entry (입력된 데이터를 감추는 텍스트 필드)  
+datetime  Date and Time  타임존이 국제표준시(UTC)로 설정된 날짜와 시간(년, 월, 일, 시, 분, 초, 분할된 초)  A date and time control  
+date  Date  타임존 없는 날짜(년, 월, 일)  A date control  
+month  Month  년월을 구성하는 타임존 없는 날짜  A month control  
+week  Week  주 를 나타내는 타임존 없는 주-년 및 주 번호  A week control  
+time  Time  타임존 없는 시간(시, 분, 초, 분할된 초)  A time control  
+datetime-local  Local Date and Time  타임존 없는 날짜와 시간(년, 월, 일, 시, 분, 초, 분할된 초)  A date and time control  
+number  Number  숫자  A text field or spinner control  
+range  Range  숫자이면서, 정확한 값이 큰 의미가 없다는 의미를 내포함  A slider control or similar  
+color  Color  8비트 RGB로 구성된 sRGB 색상  A color well  
+checkbox  Checkbox  미리 정의된 목록에서 가져온 0개 이상의 값  A checkbox  
+radio  Radio Button  열거된 값  A radio button  
+file  File Upload  MIME 타입과, (선택적으로)파일명을 갖는 파일들  A label and a button  
+submit  Submit Button  열거된 값. 폼 제출을 시작하므로, 이것을 선택한 후에는 다른 값을 선택할 수 없음을 암시합니다.  A button  
+image  Image Button  특정 이미지의 크기와 관련된 좌표. 폼 제출을 시작하므로, 이것을 선택한 후에는 다른 값을 선택할 수 없음을 암시합니다.  Either a clickable image, or a button  
+reset  Reset Button  n/a  A button  
+button  Button  n/a  A button  
+
+
+
+   
+  
+  -->
+
+<form action="http://www.naver.com/index.html">
+<table border="1">
+	<tr>
+		<td> 아이디 </td>
+	<td>
+			<input type="text" name="id">
+	 </td>
+	 </tr>
+	 <tr>
+	  		<td> 비밀번호 </td>
+	<td>
+			<input type="password" name="pw"> 
+	 </td>
+	  
+	</tr>
+	
+	</talbel>  
+	
+	 <p></p>
+	 
+	 <table   margin="1">
+	
+		 <tr>
+	  		<td> Sexual </td>
+	<td>
+			<input type="radio" name="sex" value="man" cheacked>sexcode-1 
+			<input type="radio" name="sex" value="woman"> secode-2
+			
+	 </td>
+	  
+	</tr>
+	
+	</table>
+	
+	<table padding="1">
+		<tr>
+			<td> Three radio Selection </td>
+			<td> 
+				<input type="radio" name ="evaluation" value="best"> eva_best
+				<input type="radio" name ="evaluation" value="normal" cheacked> eva_normal
+				<input type="radio" name ="evaluation" value="worst"> eva_worst
+			</td>
+			
+			</tr>
+			
+			</table>
+			
+	<table border="2">
+	<tr>
+			
+		<td> cheackbox</td>
+		<td>
+			<input type="cheackbox" name="ck1" value="1" id="ch1">
+			<lable for="ck1"> 너의 선택 </lable>
+			<br>
+			<input type="cheakbox" name="ck2" value="2" id="ch2">
+			<lable for="ck2"> 나의 선택 </lable>
+			<br>
+			
+			
+		</td>
+		
+		</tr>
+		
+		</table>
+	 <p>
+	
+	<div data-role=content>  
+
+    <span> Choose an apartment: </span>
+
+    <div data-role=controlgroup>
+
+      <label for=id1> 1 bedroom </label>
+
+      <input type=checkbox id=id1 name=p1 />
+
+      <label for=id2> 2 bedrooms </label>
+
+      <input type=checkbox id=id2 name=p2 />
+
+      <label for=id3> 3 bedrooms </label>
+
+      <input type=checkbox id=id3 name=p3 />
+
+      <label for=id4> 4 bedrooms </label>
+
+      <input type=checkbox id=id4 name=p4 />
+
+      <label for=id5> 5 bedrooms </label>
+
+      <input type=checkbox id=id5 name=p5 />
+
+    </div>
+
+  </div>
+
+</div>
+
+
+출처: http://coronasdk.tistory.com/489 [IT 기술 따라잡기]
+	
+	
+	
+	<!-- input type="raido" name= "" value="" cheacked> .... 
+	 상호배타적인 선택할 수 있는 리스트 박스를 출력,
+	 name이 다를 경우 라디오 버튼 둘다 선택이 가능해져 버림. 상호배타적으로 사용할 같은 이름.
+	 value 라디오 버튼에 출력될 이름 
+	 cheacked 기본적으로 체크될 항목 표시,   -->
+	
+	
+</table>
+
+
+
+
+ <td colspan=2> <input type="submit" value="로그인"> </td>
+  <div> <input type="reset">  </div>
+</form>
+
+<select name="과일">
+	<option value = "orange"> 오렌지 </option>
+	<option value = "banana"> 바나나 </option>
+	<option value = "apple"> 사과</option>
+
+</select>	
+<br>
+<select name="chioce" multiple>
+	<option value = "김명수"> 오렌지 </option>
+	<option value = "김정선"> 바나나 </option>
+	<option value = "김삼식"> 사과</option>
+</select>
+<br><br>
+<textarea name="memo" cols="50" rows="10">
+-- 간단한 메세지를 입력하세요--
+</textarea>
+
+	<input type="submit" value="전송">
+
+ 	<input tyep="text" name="memo" maxlength="6" value="memo">
+ 	<br><br>
+ 	
+ 	<input type="radio" name="sex" value="man" cheacked>남성
+ 	<input type="radio" name="sex" value="woman" >여성
+ 		
+ 		<br><br>
+ 	<input type="checkbox" name="ch" value="1"> 독서
+	<input type="checkbox" name="ch" value="2"> 여행 	
+ 	<input type="checkbox" name="ch" value="3"> 스포츠
+
+</form>
+</body>
+</html>
