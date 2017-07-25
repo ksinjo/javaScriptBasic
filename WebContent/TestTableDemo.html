@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<!--  돔객체를 통해 엘레멘트를 가져온다.  
+ 
+ -->
+
+	<script>
+			function addRow(){
+				 var fileTable = document.getElementById('fileTable');
+				 var row = fileTable.insertRow(fileTable.rows.length);
+				 var cell = row.insertCell(0);
+				 row.innerHTML='<td><input type="checkbox"></td>'+
+				 
+				 '<td>&nbsp;</td>'+
+				 '<td>&nbsp;</td>'+
+				 '<td>&nbsp;</td>'+
+				 '<td>&nbsp;</td>'+
+				 '<td>&nbsp;</td>'+
+				 '<td>&nbsp;</td>'+
+				 '<td>&nbsp;</td>'+
+				 '<td>&nbsp;</td>'
+			function delRow(){
+				var fileTable = document.getElementById('fileTable');
+				var tBody = fileTable.tBodies[0];
+				for(var i=0; i<tBody.rows.length;i++){
+					var trObj = tBody.rows[i]; // tr에 해당 객체가 담긴다. 
+				}
+				 console.dir(11);
+				 }
+				 
+				 
+				 
+				 
+	//			 cell.innnerHTML = '<input tyep="checkbox">';
+// 				 row.insertCell(1).innerHTML = "new row";
+// 				 row.insertCell(2).innerHTML = "new row";
+// 				 row.insertCell(3).innerHTML = "new row";
+// 				 row.insertCell(4).innerHTML = "new row";
+// 				 row.insertCell(5).innerHTML = "new row";
+// 				 row.insertCell(6).innerHTML = "new row";
+// 				 row.insertCell(7).innerHTML = "new row";
+// 				 row.insertCell(8).innerHTML = "new row";
+// 				 row.insertCell(9).innerHTML = "new row";
+				 
+				 
+// 				console.dir(fileTable);
+// 				console.log(fileTable.nodename);
+			}		
+			function delRow(){
+				
+			}		
+		
+	</script>
+</head>
+<!-- <style> -->
+<!-- /* table { */ -->
+<!-- /* background-color: gary; */ -->
+<!-- /* } */ -->
+
+<!-- /* div { */ -->
+<!-- /* 	border:1px solid black; */ -->
+<!-- /*  	padding:10px; */ -->
+<!-- /*  	width:200px; */ -->
+<!-- /*  	height:300px; */ -->
+<!-- /* 	text-align:justify; */ -->
+
+<!-- /* } */ -->
+<!-- </style> -->
+<body>
+	<input type="button" onclick="addRow()" value="행추가">
+	<input type="button" onclick="delRow()"value="행삭제">
+	<p align=center><b>자료보관문서색인표</b></p>
+	<table id='fileTable' border=2 style="width:100%; border-collapse:  collapse; border-style:double;" >
+		<thead>
+		<tr>
+<!-- 	//border-style: double -->
+			<th rowspan=2>NO</th>
+			<th rowspan=2>보존기간</th>
+			<th colspan=3> 보관함</th>
+			<th rowspan=2>보관부서</th>
+			<th rowspan=2>승인여부 </th>
+			<th rowspan=2>승인</th>
+			<th rowspan=2>폐기일</th>
+			
+		</tr>
+		
+		<tr>
+			<th rowspan=2>분류기호</th>
+			<th rowspan=2>자료명</th>
+			<th rowspan=2>전장수</th>
+			
+		</tr>
+		</thead>
+			<tr>
+			<td> <input type="checkbox"></td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+		
+	
+		
+		
+	</table>
+	
+<!-- 	<div> What is CSS? -->
+<!-- 		CSS stands for Cascading Style Sheets -->
+<!-- 		CSS describes how HTML elements are to be displayed on screen, paper, or in other media -->
+<!-- 		CSS saves a lot of work. It can control the layout of multiple web pages all at once -->
+<!-- 		External stylesheets are stored in CSS files -->
+<!-- 	</div> -->
+
+</body>
+</html>
