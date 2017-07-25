@@ -10,23 +10,28 @@
 	<script>
 			function addRow(){
 				 var fileTable = document.getElementById('fileTable');
-				 var row = fileTable.insertRow(fileTable.rows.length);
-				 var cell = row.insertCell(0);
+				 var tBody = fileTable.tBodies[0];
+				 var row = tBody.insertRow(tBody.rows.length);
+				 
 				 row.innerHTML='<td><input type="checkbox"></td>'+
 				 
-				 '<td>&nbsp;</td>'+
-				 '<td>&nbsp;</td>'+
-				 '<td>&nbsp;</td>'+
-				 '<td>&nbsp;</td>'+
-				 '<td>&nbsp;</td>'+
-				 '<td>&nbsp;</td>'+
-				 '<td>&nbsp;</td>'+
-				 '<td>&nbsp;</td>'
+				 '<td><input type="text"></td>'+
+				 '<td><input type="text"></td>'+
+				 '<td><input type="text"></td>'+
+				 '<td><input type="text"></td>'+
+				 '<td><input type="text"></td>'+
+				 '<td><input type="text"></td>'+
+				 '<td><input type="text"></td>'+
+				 '<td><input type="text"></td>';
 			function delRow(){
 				var fileTable = document.getElementById('fileTable');
 				var tBody = fileTable.tBodies[0];
-				for(var i=0; i<tBody.rows.length;i++){
+				for(var i=tBody.rows.length-1; i>=0;i--){
 					var trObj = tBody.rows[i]; // tr에 해당 객체가 담긴다. 
+					if(trObj.children[0].children[0].checked){
+						tBody.deleteRow(i);
+						}
+					}
 				}
 				 console.dir(11);
 				 }
@@ -47,19 +52,19 @@
 				 
 				 
 // 				console.dir(fileTable);
-// 				console.log(fileTable.nodename);
-			}		
-			function delRow(){
+// // 				console.log(fileTable.nodename);
+// 			}		
+// 			function delRow(){
 				
-			}		
+// 			}		
 		
 	</script>
-</head>
+<!-- </head> -->
 <!-- <style> -->
 <!-- /* table { */ -->
 <!-- /* background-color: gary; */ -->
 <!-- /* } */ -->
-
+s
 <!-- /* div { */ -->
 <!-- /* 	border:1px solid black; */ -->
 <!-- /*  	padding:10px; */ -->
@@ -71,7 +76,7 @@
 <!-- </style> -->
 <body>
 	<input type="button" onclick="addRow()" value="행추가">
-	<input type="button" onclick="delRow()"value="행삭제">
+	<input type="button" onclick="delRow()" value="행삭제">
 	<p align=center><b>자료보관문서색인표</b></p>
 	<table id='fileTable' border=2 style="width:100%; border-collapse:  collapse; border-style:double;" >
 		<thead>
