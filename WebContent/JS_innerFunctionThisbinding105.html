@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<script>
+ var value = 100; 
+  
+ 
+ var obj = {value: 1,
+		 fun1 : function() {
+			 this.value += 1;
+			 console.log("fun1() called .this.value +" this.value);
+			 
+		fun2 : function() {
+			this.value += 2; 
+			console.log("fun1() called .this.value +" this.value);
+
+			 
+		fun3 : function() {
+			this.value += 3; 
+			console.log("fun1() called .this.value +" this.value);
+			
+		}	 
+
+		fun3();
+		
+		}	 
+
+		fun2();
+			 
+		 }
+		 
+ 	obj.fun1();
+		 
+ }
+ 
+ 
+
+
+
+</script>
+<body>
+
+</body>
+</html>
