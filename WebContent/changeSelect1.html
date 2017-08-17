@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title></title>
+<script type="text/javascript">
+  var  LinkedOption = function(s_IdArray) {
+      var jsonObj = {
+         "area" : [
+         // depth 1 
+         {"id" : "1","pid" : "","name" : "지역1"},
+         {"id" : "2","pid" : "","name" : "지역2"},
+         {"id" : "3","pid" : "","name" : "지역3"},
+
+         // depth2 
+
+            {"id" : "1001","pid" : "1","name" : "지역1-1"},
+            {"id" : "1002","pid" : "2","name" : "지역1-2"},
+            {"id" : "1003","pid" : "3","name" : "지역1-2"},
+            {"id" : "1004","pid" : "4","name" : "지역1-2"},
+       
+
+         // depth3
+         {"id" : "10001","pid" : "1001","name" : "지역1-1-1"},
+         {"id" : "10002","pid" : "1001","name" : "지역1-1-2"},
+         {"id" : "10003","pid" : "1001","name" : "지역1-1-3"},
+         {"id" : "10004","pid" : "1001","name" : "지역1-1-4"},
+         
+         
+         {"id" : "12001","pid" : "1002","name" : "지역1-2-1"},
+         {"id" : "13002","pid" : "1003","name" : "지역1-3-1"},
+         {"id" : "14003","pid" : "1004","name" : "지역1-4-1"},
+         
+         
+
+         // depth4
+         {"id" : "110001","pid" : "10001","name" : "지역1-1-1-1"},
+         {"id" : "110002","pid" : "10001","name" : "지역1-1-1-2"},
+         {"id" : "110003","pid" : "10001","name" : "지역1-1-1-3"},
+         {"id" : "110004","pid" : "10001","name" : "지역1-1-1-4"},
+ 
+         ]
+
+      };
+      
+    this.init = function(){  // 링크함수로 초기화 익명 함수 (역할:초기값 설정 및  옵션변경마다 ) 
+      for (var i = 0; i<s_IdArray.length;i++){
+         ConstrSet_option(s_IdArray[0],"");  // 초기값 설정 함수 호출로 초기값 설정.   
+         var selected_Op = document.getElementById(s_IdArray[i]);
+            selected_Op.addEventListener("change",(function(k){  // 옵션 시 마다  현재와 다음 옵션 비교 
+            
+               return function() {
+                  for (var i = s_IdArray.indexOf(s_IdArray[k])+ 1;i<s_IdArray.length;i++) {  
+                               var SelectedPreop = document.getElementById(s_IdArray[i-1]);  //                  
+                              ConstrSet_option(s_IdArray[i], SelectedPreop.value);
+                  }    
+               };
+            })(i));  
+      }
+
+    }
+
+    
+    //  constructSet_Option : ID와 PID를 비교하여  옵션 데이터 가져와 구성한다. 
+   function ConstrSet_option(curOp_Id,next_Pid){
+      var selBox = document.getElementById(curOp_Id);
+      selBox.options.length = 0;
+      selBox.options[0] = new Option('--선택--');
+      var option_cnt = 1;
+      for (var i = 0; i < jsonObj.area.length; i++) {
+         if (jsonObj.area[i].pid == next_Pid) {
+            selBox.options[option_cnt] = new Option(
+                  jsonObj.area[i].name, jsonObj.area[i].id);
+            option_cnt++;
+         }
+      }
+   }
+
+      this.init();
+}
+
+      
+   window.onload = function() {
+      var s_IdArray = [ 'first', 'sceond', 'third', 'forth' ];
+      LinkedOption(s_IdArray);
+   }
+   
+</script>
+</head>
+<body>
+   <form name='form'>
+      <select id='first'>
+      </select> <select id='sceond'></select> <select id='third'>
+      </select> <select id='forth'>
+      </select>
+   </form>
+
+</body>
+</html>
